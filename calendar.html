@@ -3,61 +3,29 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <style>
+        table{
+            border-collapse: collapse;
+            border: 1px solid #eee;
+        }
 
+        .du_calendarBox{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
 </head>
 <body>
-<script>
-    /*
-     * 判断闰年
-     * return : 1  0
-     */
-    function is_leap(year) {
-        return (year%100==0?res=(year%400==0?1:0):res=(year%4==0?1:0));
-    }
-
-    var nstr=new Date(); //当前Date资讯
-    var ynow=nstr.getFullYear(); //年份
-    var mnow=nstr.getMonth();    //月份
-    var dnow=nstr.getDate();     //今日日期
-
-    var n1str=new Date(ynow,mnow,1); //当月第一天
-    var weekNum=n1str.getDay();     //当月第一天星期几(星期日为0)
-
-    /*
-     * 定义一个包含十二个月在内的月份总天数的数组：
-     */
-    var m_days=new Array(31,28+is_leap(ynow),31,30,31,30,31,31,30,31,30,31); //各月份的总天数
-
-    var tr_str=Math.ceil((m_days[mnow] + weekNum)/7); //表格所需要行数
-
-    //打印表格第一行（有星期标志）
-    document.write ("<table border='1' align='center' width='400' cellspacing='0'><tr><td align='center'>日</td><td align='center'>一</td><td align='center'>二</td><td align='center'>三</td><td align='center'>四</td><td align='center'>五</td><td align='center'>六</td></tr>");
-
-    for(i=0;i<tr_str;i++) { //表格的行
-        document.write("<tr>");
-
-        for(j=0;j<7;j++) {         //表格每行的单元格
-            var index = i*7+j;     //单元格自然序列号
-            var date_str = index-weekNum+1; //计算日期
-
-            //过滤无效日期（小于等于零的、大于月总天数的）
-            if(date_str<=0 || date_str>m_days[mnow]){
-                date_str = "&nbsp;"
-            }else{
-                date_str = index-weekNum+1;
-            }
-
-            //打印日期：今天底色为红
-            if(date_str==dnow){
-                document.write ("<td align='center' bgcolor='red'>" + date_str + "</td>")
-            }else{
-                document.write ("<td align='center'>" + date_str + "</td>")
-            }
-        }
-        document.write("</tr>"); //表格的行结束
-    }
-
-    document.write("</table>"); //表格结束
-</script>
+<div class="du_calendarBox" id="du_calendarBox">
+    <div><span class="du_left"> &lt; </span> <span class="du_time"></span> <span class="du_right"> &gt; </span></div>
+    <table></table>
+</div>
 </body>
+
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/calendar.js"></script>
+<script>
+    var du_calendar = new Du_calendar('du_calendarBox');
+    du_calendar.init();
+</script>
 </html>
