@@ -2,10 +2,6 @@
  依赖jquery
  */
 
-
-
-
-
 var year;    //年
 var month;   //月
 var date;    //日
