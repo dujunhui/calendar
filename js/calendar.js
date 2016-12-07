@@ -1,5 +1,6 @@
 /*
- 依赖jquery
+ * 依赖jquery1-1.11.1.js
+ * 面向对象写法
  */
 
 
@@ -84,39 +85,37 @@ Du_calendar.prototype.init = function(){
     this.addProDate(dateObj);
     this.addTable();
 
-    var c_num = 0;
+    var _tag = 0;//左右按钮标记
     var This = this;
+
     //左键
     this.leftBtn.on("click",function(){
-        c_num--
+        _tag--
         var dateObj;
-        if(c_num == 0){
+        if(_tag == 0){
             dateObj = new Date();
         }else{
             var y = parseInt(This.year);
-            var m = parseInt(This.month);
-            m--
+            var m = parseInt(This.month)-1;
             if(m<0){
                 m = 11 ;
                 y--;
             }
             dateObj = new Date(y,m,1);
         }
-
         This.addProDate(dateObj);
         This.addTable();
-
     })
+
     //右键
     this.rightBtn.on("click",function(){
-        c_num++
+        _tag++
         var dateObj;
-        if(c_num == 0){
+        if(_tag == 0){
             dateObj = new Date();
         }else{
             var y = parseInt(This.year);
-            var m = parseInt(This.month);
-            m++
+            var m = parseInt(This.month)+1;
             if(m>11){
                 m = 0;
                 y++;
