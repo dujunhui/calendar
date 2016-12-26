@@ -1,7 +1,11 @@
-# du-Paging
-
-- html
-```html
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>du-Calendar日历组件</title>
+    <link rel="stylesheet" href="css/du-Calendar.css"/>
+</head>
+<body>
     <div class="du-calendarBox" id="myCalendar">
         <div class="du-calendarBar">
             <span class="du-left"> &lt; </span>
@@ -10,18 +14,13 @@
         </div>
         <table></table>
     </div>
-```
-- css
-```html
-    <link rel="stylesheet" href="css/du-Calendar.css"/>
-```
-- js
-```html
-    <script src="js/tool/jquery-1.11.1.js"></script>
-    <script src="js/du-Calendar.js"></script>
-```
-- show
-```javascript
+</body>
+
+<script src="js/tool/jquery-1.11.1.js"></script>
+<script src="js/du-Calendar.js"></script>
+<script>
     var calendar = new DuCalendar('myCalendar');
     calendar.init();
-```
+</script>
+
+</html>

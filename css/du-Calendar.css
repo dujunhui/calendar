@@ -1,34 +1,36 @@
-.du_calendarBox{
+.du-calendarBox{
     width: 300px;
     height: 300px;
 }
-.du_calendarBox table{
+.du-calendarBox table{
     border-collapse: collapse;
     border: 1px solid #eee;
     width:100%
 }
-.du_calendarBox table td{
+.du-calendarBox table td{
     text-align: center;
     border: 1px solid #ccc;
 }
-.du_time{
-    width: 100%;
-    display: block;
-    text-align: center;
-}
 
 
-.du_calendarBar{
+
+
+.du-calendarBar{
     position: relative;
     height: 30px; ;
 }
-.du_calendarBar .du_left{
+.du-calendarBar .du-left{
     position: absolute;
     left: 0;
     top:0;
 }
-.du_calendarBar .du_right{
+.du-calendarBar .du-right{
     position: absolute;
     right: 0;
     top:0;
+}
+.du-calendarBar .du-time{
+    width: 100%;
+    display: block;
+    text-align: center;
 }

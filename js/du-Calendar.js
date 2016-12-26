@@ -1,15 +1,14 @@
 /*
- * 依赖jquery1-1.11.1.js
- * 面向对象写法
+ * du-Calendar组件
  */
 
 
-function Du_calendar(id){
+function DuCalendar(id){
     this.oParent = $('#'+id);//父级
     this.table = this.oParent.find("table");
-    this.leftBtn = this.oParent.find(".du_left");
-    this.rightBtn = this.oParent.find(".du_right");
-    this.timeTitle = this.oParent.find(".du_time");
+    this.leftBtn = this.oParent.find(".du-left");
+    this.rightBtn = this.oParent.find(".du-right");
+    this.timeTitle = this.oParent.find(".du-time");
 
     this.year;
     this.month;
@@ -20,7 +19,7 @@ function Du_calendar(id){
 }
 
 //初始化属性数据
-Du_calendar.prototype.addProDate = function(dateObj){
+DuCalendar.prototype.addProDate = function(dateObj){
 
     this.year = dateObj.getFullYear();
     this.month = dateObj.getMonth();
@@ -44,7 +43,7 @@ Du_calendar.prototype.addProDate = function(dateObj){
 
 
 //加载table结构
-Du_calendar.prototype.addTable = function(){
+DuCalendar.prototype.addTable = function(){
     //打印当前日期
     this.timeTitle.html(this.year + " " + (parseInt(this.month)+1));
     //打印表格第一行（有星期标志）
@@ -80,7 +79,7 @@ Du_calendar.prototype.addTable = function(){
     }
 }
 
-Du_calendar.prototype.init = function(){
+DuCalendar.prototype.init = function(){
     var dateObj = new Date();
     this.addProDate(dateObj);
     this.addTable();
