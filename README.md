@@ -25,3 +25,4 @@
     var calendar = new DuCalendar('myCalendar');
     calendar.init();
 ```
+[demo.html](https://dujunhui.github.io/du-Calendar/demo.html)
